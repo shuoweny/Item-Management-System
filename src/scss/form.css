@@ -1,0 +1,42 @@
+@media screen and (max-width: 1500px) {
+	.el-form-item__label {
+		width: 100% !important;
+		text-align: left !important;
+		
+		justify-content: flex-start !important;
+	}
+	.el-form-item__content {
+		margin-left: 0 !important;
+    
+	}
+	.el-form-item {
+		display: unset !important;
+	}
+  .login-buttons{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+@media screen and (max-width: 580px) {
+	.register-buttons{
+    display: flex !important;
+  /* justify-content:space-between; */
+  flex-direction: column !important;
+  /* width: 50%; */
+  margin-left: 10% !important;
+  /* margin-top: 40px; */
+  /* white-space: nowrap; */
+  }
+}
+.el-form-item__label{
+  color:rgb(212, 156, 59) !important;
+   font-weight:bold !important;
+   font-size:20px !important;
+}
+.el-button--primary {
+  --el-button-bg-color: rgba(156, 149, 165, 0.5) !important;
+  --el-button-hover-bg-color: #d8982a !important;
+  size: large !important;
+}

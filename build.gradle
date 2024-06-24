@@ -1,0 +1,102 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'org.asciidoctor.convert' version '1.5.8'
+    id 'java'
+    id 'pmd'
+    id "com.github.node-gradle.node" version "3.4.0"
+    id "com.github.shalousun.smart-doc" version "2.2.9"
+}
+
+group = 'au.edu.unimelb.team.twelve'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+smartdoc {
+    configFile = file("src/main/resources/smart-doc.json")
+    exclude 'org.springframework.boot.*'
+}
+pmd {
+    consoleOutput = true
+    ruleSets = [
+            "java-ali-concurrent",
+            "java-ali-constant",
+            "java-ali-exception",
+            "java-ali-flowcontrol",
+            "java-ali-naming",
+            "java-ali-oop",
+            "java-ali-orm",
+            "java-ali-other",
+            "java-ali-set"
+    ]
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+node {
+    version = '16.16.0'
+    download = true
+}
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+    set('testcontainersVersion', "1.17.3")
+}
+
+task lintFrontend(type: NpmTask, dependsOn: 'npmInstall') {
+    args = ['run', 'lint']
+}
+
+task buildFrontend(type: NpmTask, dependsOn: 'lintFrontend') {
+    args = ['run', 'build']
+}
+
+task debugFrontend(type: NpmTask, dependsOn: 'lintFrontend') {
+    args = ['run', 'dev']
+}
+
+build.dependsOn 'buildFrontend'
+
+clean.delete << file('node_modules')
+
+dependencies {
+    pmd "com.alibaba.p3c:p3c-pmd:2.1.1"
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-jersey'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.h2database:h2'
+    implementation 'org.springframework.session:spring-session-jdbc'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation 'org.testcontainers:junit-jupiter'
+    testImplementation 'org.testcontainers:mysql'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
+}
+
+tasks.named('test') {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+tasks.named('asciidoctor') {
+    inputs.dir snippetsDir
+    dependsOn test
+}

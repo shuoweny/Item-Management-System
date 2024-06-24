@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="smart-doc">
+    <title>API Reference</title>
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="AllInOne.css?v=1662664669005"/>
+    
+    <style>.literalblock pre, .listingblock pre:not(.highlight), .listingblock pre[class="highlight"], .listingblock pre[class^="highlight "], .listingblock pre.CodeRay, .listingblock pre.prettyprint {
+        background: #f7f7f8;
+    }
+
+    .hljs {
+        padding: 0em;
+    }</style>
+    <script src="highlight.min.js"></script>
+    <script src="jquery.min.js"></script>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+    <div id="toc" class="toc2">
+        <div id="book-search-input"><input id="search" type="text" placeholder="Type to search"></div>
+        <div id="toctitle"><span>API Reference</span></div>
+        <ul id="accordion" class="sectlevel1">
+            <li class="open"><a class="dd" href="api.html#header">1.&nbsp;General Apis</a>
+                <ul class="sectlevel2" style="display: block">
+                    <li><a
+                            href="api.html#_1_1_Hello World!">1.1.&nbsp;Hello World!</a>
+                    </li>
+
+                    <li><a
+                            href="api.html#_1_2_List Tags">1.2.&nbsp;List Tags</a>
+                    </li>
+
+                    <li><a
+                            href="api.html#_1_3_List Storages">1.3.&nbsp;List Storages</a>
+                    </li>
+
+                    <li><a
+                            href="api.html#_1_4_List Categories">1.4.&nbsp;List Categories</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a class="dd" href="UserController.html#header">2.&nbsp;User Related Apis</a>
+                <ul class="sectlevel2" style="display: none">
+                    <li><a
+                            href="UserController.html#_2_1_Register">2.1.&nbsp;Register</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_2_Login">2.2.&nbsp;Login</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_3_Logout">2.3.&nbsp;Logout</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_4_Remove Newcomer Flag">2.4.&nbsp;Remove Newcomer Flag</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_5_Delete User">2.5.&nbsp;Delete User</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_6_Retrieve Info">2.6.&nbsp;Retrieve Info</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_7_Retrieve Others' Info">2.7.&nbsp;Retrieve Others' Info</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_8_Search User By Name">2.8.&nbsp;Search User By Name</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_9_List Items">2.9.&nbsp;List Items</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_10_List Books">2.10.&nbsp;List Books</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_11_Search Items (And)">2.11.&nbsp;Search Items (And)</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_12_Search Items (Or)">2.12.&nbsp;Search Items (Or)</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_13_Search Books (And)">2.13.&nbsp;Search Books (And)</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_14_Search Books (Or)">2.14.&nbsp;Search Books (Or)</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_15_List Favorite Items">2.15.&nbsp;List Favorite Items</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_16_List Favorite Books">2.16.&nbsp;List Favorite Books</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_17_Add favorite item">2.17.&nbsp;Add favorite item</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_18_Remove favorite item">2.18.&nbsp;Remove favorite item</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_19_Add New Item">2.19.&nbsp;Add New Item</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_20_Update Exist Item">2.20.&nbsp;Update Exist Item</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_21_Add New Book">2.21.&nbsp;Add New Book</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_22_Update Exist Book">2.22.&nbsp;Update Exist Book</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_23_Add/Update Tag">2.23.&nbsp;Add/Update Tag</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_24_Add/Update Category">2.24.&nbsp;Add/Update Category</a>
+                    </li>
+
+                    <li><a
+                            href="UserController.html#_2_25_Add/Update Storage">2.25.&nbsp;Add/Update Storage</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div class="sect1"><h2 id="_General Apis"><a class="anchor" href="#_General Apis"></a><a class="link" href="#_General Apis">1.&nbsp;General Apis</a>
+    </h2>
+        <div class="sectionbody">
+            <div class="sect2"><h3 id="_1_1_Hello World!">
+                <a class="anchor" href="#_1_1_Hello World!"></a>
+                <a class="link" href="#_1_1_Hello World!">1.1.&nbsp;Hello World!</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="/greeting" class="bare">&nbsp;/greeting</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;Hello World!</p></div>
+                <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">your name!</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X GET -i /greeting?name=World</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int64</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">content</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">No comments found.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{
+  "id": 748,
+  "content": "rap1hz"
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_1_2_List Tags">
+                <a class="anchor" href="#_1_2_List Tags"></a>
+                <a class="link" href="#_1_2_List Tags">1.2.&nbsp;List Tags</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="/tags" class="bare">&nbsp;/tags</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;List Tags</p></div>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X GET -i /tags</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_1_3_List Storages">
+                <a class="anchor" href="#_1_3_List Storages"></a>
+                <a class="link" href="#_1_3_List Storages">1.3.&nbsp;List Storages</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="/storages" class="bare">&nbsp;/storages</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;List Storages</p></div>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X GET -i /storages</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sect2"><h3 id="_1_4_List Categories">
+                <a class="anchor" href="#_1_4_List Categories"></a>
+                <a class="link" href="#_1_4_List Categories">1.4.&nbsp;List Categories</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="/categories" class="bare">&nbsp;/categories</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8</p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;List Categories</p></div>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="bash">curl -X GET -i /categories</code></pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre><code class="json">{}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2022-09-09 03:17:49</span><span
+            class="footer-modification">Suggestions,contact,support and error reporting on<a
+            href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
+            href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
+</div>
+<script src="search.js?v=1662664669005"></script>
+<script>
+    $(function () {
+        const Accordion = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+            const links = this.el.find('.dd');
+            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown);
+        };
+        Accordion.prototype.dropdown = function (e) {
+            const $el = e.data.el;
+            const $this = $(this), $next = $this.next();
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+            if (!e.data.multiple) {
+                $el.find('.submenu').not($next).slideUp("20").parent().removeClass('open');
+            }
+        };
+        new Accordion($('#accordion'), false);
+        hljs.initHighlightingOnLoad()
+    });
+</script>
+</body>
+</html>
